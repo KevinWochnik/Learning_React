@@ -1,35 +1,28 @@
 import React, { useState } from "react";
 import "./ExpenseForm.css";
 
-const ExpenseForm = ({onSaveExpenseData}) => {
+const ExpenseForm = ({ onSaveExpenseData }) => {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
+  const [flag, setFlag] = useState(false);
 
-  // const [userInput, setUserInput] = useState({
-  //     enteredTitle: '',
-  //     enteredAmount: '',
-  //     enteredDate: '',
-  // })
+  const changeInput = (e) => {
+    e.preventDefault();
+    setFlag((prevState) => !prevState);
+  };
+  let input = <button onClick={changeInput}>Add expense</button>
+  if(flag){
+    
+  }
 
   const titleChangeHandler = (e) => {
-    //     setUserInput((prevState)=>{
-    //        return {...prevState, enteredTitle: e.target.value}
-    //   })
     setEnteredTitle(e.target.value);
   };
   const amountChangeHandler = (e) => {
-    // setUserInput({
-    //     ...userInput,
-    //     enteredAmount: e.target.value,
-    // })
     setEnteredAmount(e.target.value);
   };
   const dateChangeHandler = (e) => {
-    // setUserInput({
-    //     ...userInput,
-    //     enteredDate: e.target.value,
-    // })
     setEnteredDate(e.target.value);
   };
   const submitHandler = (e) => {
