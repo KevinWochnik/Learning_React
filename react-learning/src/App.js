@@ -1,27 +1,23 @@
-import Header from "./components/Layout/Header/Header";
-import Meals from "./components/Meals/Meals/Meals";
-import Cart from "./components/Cart/Cart";
-import { useState } from "react";
-import CartProvider from "./components/store/CartProvider";
+import MainTemplate from "./components/Templates/MainTemplate/MainTemplate";
+import { ThemeProvider } from "styled-components";
+import { theme } from "./styles/theme";
+import { GlobalStyle } from "./styles/GlobalStyles";
+import Header from "./components/Header/Header";
+import { Banner } from "./components/Banner/Banner.styles";
+import WelcomingTag from "./components/WelcomingTag/WelcomingTag";
+import List from "./components/List/List";
 
 function App() {
-  const [cartIsShown, setCartIsShown] = useState(false);
-
-  const showCartHandler = () => {
-    setCartIsShown(true);
-  };
-  const hideCartHandler = () => {
-    setCartIsShown(false);
-  };
-
   return (
-    <CartProvider>
-      {cartIsShown && <Cart onClose={hideCartHandler}/>}
-      <Header onShowCart={showCartHandler}/>
-      <main>
-        <Meals />
-      </main>
-    </CartProvider>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <MainTemplate>
+        <Header />
+        <Banner />
+        <WelcomingTag />
+        <List />
+      </MainTemplate>
+    </ThemeProvider>
   );
 }
 
