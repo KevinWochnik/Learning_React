@@ -1,27 +1,19 @@
-import Header from "./components/Layout/Header/Header";
-import Meals from "./components/Meals/Meals/Meals";
-import Cart from "./components/Cart/Cart/Cart";
-import CartProvider from "./store/CartProvider";
-import { useState } from "react";
+import React, { useState } from "react";
+import "./App.css";
+import Button from "./components/UI/Button/Button";
 
 function App() {
-  const [cartIsShown, setcartIsShown] = useState(false);
+  const [showP, setShowP] = useState(false);
 
-  const showCartHandler = () => {
-    setcartIsShown(true);
+  const toggleParagraphHandler = () => {
+    setShowP((prev) => !prev);
   };
-  const hideCartHandler = () => {
-    setcartIsShown(false);
-  };
-
   return (
-    <CartProvider>
-      {cartIsShown && <Cart onClose={hideCartHandler} />}
-      <Header onShowCart={showCartHandler} />
-      <main>
-        <Meals />
-      </main>
-    </CartProvider>
+    <div className="app">
+      <h1>Hi there!</h1>
+      {showP && <p>This is new</p>}
+      <Button onClick={toggleParagraphHandler}>Toggle paragraph</Button>
+    </div>
   );
 }
 
