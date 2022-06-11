@@ -8,7 +8,7 @@ export const MainTemplateWrapper = styled.div`
 
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 80px 300px 1fr;
+  grid-template-rows: 65px 250px 1fr;
   grid-template-areas:
     "header"
     "banner"
