@@ -15,7 +15,7 @@ export const HeaderWrapper = styled.div`
     color: white;
     font-weight: bold;
     letter-spacing: 1px;
-    font-size: ${({ theme }) => theme.fontSize.l};
+    font-size: ${({ theme }) => theme.fontSize.xl};
   }
   & button {
     margin-right: 10%;

@@ -1,18 +1,18 @@
 import React from "react";
 import { ListWrapper } from "./List.styles";
-import ListItem from '../ListItem/ListItem'
+import ListItem from "../ListItem/ListItem";
 import { meals } from "../../../data/listData";
 
 const List = () => (
-
   <ListWrapper>
-    {meals.map(meal=><ListItem meal={meal}/>)}
+    <ul>
+      {meals.map((meal) => (
+        <ListItem meal={meal} />
+      ))}
+    </ul>
   </ListWrapper>
 );
 export default List;
-
-
-
 
 //   <div>
 //   <h2>Finest fish and veggies</h2>
