@@ -6,7 +6,6 @@ export const ListWrapper = styled.div`
   max-height: 450px;
   width: 700px;
   margin: 170px auto 0;
-  overflow-y: scroll;
 
   border-radius: 10px;
   background-color: ${({ theme: { colors } }) => colors.white};
