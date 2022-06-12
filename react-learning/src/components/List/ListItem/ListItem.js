@@ -1,18 +1,12 @@
-import react from "react";
+import MealDetails from "../../MealDetails/MealDetails";
+import ListForm from "../ListForm/ListForm";
 import { ListItemWrapper } from "./ListItem.styles";
 
 const ListItem = ({ meal: { id, label, price } }) => {
   return (
     <ListItemWrapper key={id}>
-      <div>
-        <p>{label}</p>
-        <span>{`$${price.toFixed(2)}`}</span>
-      </div>
-      <form>
-        <label htmlFor={id}>Amount</label>
-        <input type="number" name={id} />
-        <button type="submit">+ Add</button>
-      </form>
+      <MealDetails label={label} price={price} />
+      <ListForm id={id} type="number" />
     </ListItemWrapper>
   );
 };

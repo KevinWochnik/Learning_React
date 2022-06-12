@@ -1,14 +1,11 @@
 import React from "react";
-import { HeaderWrapper, CartIcon } from "./Header.styles";
+import HeaderButton from "../HeaderButton/HeaderButton";
+import { HeaderWrapper } from "./Header.styles";
 
 const Header = () => (
   <HeaderWrapper>
     <p>ReactMeals</p>
-    <button>
-      <CartIcon />
-      <span>Your Cart</span>
-      <span>0</span>
-    </button>
+    <HeaderButton />
   </HeaderWrapper>
 );
 
