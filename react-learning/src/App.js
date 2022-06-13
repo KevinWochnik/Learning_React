@@ -6,17 +6,20 @@ import Header from "./components/Header/Header";
 import { Banner } from "./components/Banner/Banner.styles";
 import WelcomingTag from "./components/WelcomingTag/WelcomingTag";
 import List from "./components/List/List/List";
+import ContextProvider from "./components/context/ContextProvider";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <MainTemplate>
-        <Header />
-        <Banner />
-        <WelcomingTag />
-        <List />
-      </MainTemplate>
+      <ContextProvider>
+        <GlobalStyle />
+        <MainTemplate>
+          <Header />
+          <Banner />
+          <WelcomingTag />
+          <List />
+        </MainTemplate>
+      </ContextProvider>
     </ThemeProvider>
   );
 }
