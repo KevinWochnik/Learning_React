@@ -1,5 +1,5 @@
 import React from "react";
-import HeaderButton from "../HeaderButton/HeaderButton";
+import HeaderButton from "../Buttons/HeaderButton/HeaderButton";
 import { HeaderWrapper } from "./Header.styles";
 
 const Header = () => (

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ListFormWrapper } from "./ListForm.styles";
+import { DefaultButton } from "../../Buttons/DefaultButton/DefaultButton.styles";
 
 const ListForm = ({ id, type }) => {
   const [inputValue, setInputValue] = useState(1);
@@ -21,7 +22,7 @@ const ListForm = ({ id, type }) => {
         min={1}
         max={5}
       />
-      <button type={type}>+ Add</button>
+      <DefaultButton type={type}>+ Add</DefaultButton>
     </ListFormWrapper>
   );
 };

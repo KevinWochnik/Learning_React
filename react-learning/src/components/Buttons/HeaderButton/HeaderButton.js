@@ -1,5 +1,4 @@
-import { HeaderButtonWrapper } from "./HeaderButton.styles";
-import { CartIcon } from "../Header/Header.styles";
+import { HeaderButtonWrapper, CartIcon } from "./HeaderButton.styles";
 
 const HeaderButton = () => {
   return (

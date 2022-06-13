@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { DefaultButton } from "../../Buttons/DefaultButton/DefaultButton.styles";
+
 export const ListFormWrapper = styled.form`
   flex-basis: 50%;
   display: flex;
@@ -16,16 +18,8 @@ export const ListFormWrapper = styled.form`
     width: 10px;
     justify-content: center;
   }
-  & button {
-    flex-basis: 25%;
-    width: 30px;
+  & ${DefaultButton} {
     justify-content: center;
-    padding: 2px;
-    background-color: ${({ theme: { colors } }) => colors.brown};
-    border: 3px solid ${({ theme: { colors } }) => colors.brown};
-    border-radius: 15px;
-    color: ${({ theme: { colors } }) => colors.white};
-    font-weight: bold;
-    cursor: pointer;
+    flex-basis: 25%;
   }
 `;

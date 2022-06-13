@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { Cart } from "@styled-icons/bootstrap/Cart";
+
+
 export const HeaderButtonWrapper = styled.button`
   margin-right: 10%;
   padding: 10px 30px;
@@ -22,4 +25,10 @@ export const HeaderButtonWrapper = styled.button`
     border-color: ${({ theme }) => theme.colors.lightbrown};
     background-color: ${({ theme }) => theme.colors.lightbrown};
   }
+`;
+
+export const CartIcon = styled(Cart)`
+  color: white;
+  height: 30px;
+  width: 30px;
 `;

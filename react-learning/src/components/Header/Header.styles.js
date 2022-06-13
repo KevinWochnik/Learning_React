@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Cart } from "@styled-icons/bootstrap/Cart";
 
 export const HeaderWrapper = styled.div`
   grid-area: header;
@@ -19,8 +18,3 @@ export const HeaderWrapper = styled.div`
   }
 `;
 
-export const CartIcon = styled(Cart)`
-  color: white;
-  height: 30px;
-  width: 30px;
-`;

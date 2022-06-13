@@ -1,10 +1,12 @@
-import React from 'react';
-import { MainTemplateWrapper } from './MainTemplate.styles';
+import React from "react";
+import { MainTemplateWrapper } from "./MainTemplate.styles";
+import Modal from "../../Modal/Modal";
 
-const MainTemplate = ({children})=>(
-<MainTemplateWrapper>
+const MainTemplate = ({ children }) => (
+  <MainTemplateWrapper>
+    {false && <Modal />}
     {children}
-</MainTemplateWrapper>
+  </MainTemplateWrapper>
 );
 
 export default MainTemplate;
