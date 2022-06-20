@@ -3,7 +3,7 @@ import useInput from "../hooks/useInput";
 const BasicForm = () => {
   // 1 UŻYCIE HOOKA
 
-  const validateName = (value) => value.trim() !== "";
+  const isNotEmpty = (value) => value.trim() !== "";
   const {
     value: enteredName,
     isValid: nameIsValid,
@@ -11,7 +11,7 @@ const BasicForm = () => {
     valueChangeHandler: nameChangeHandler,
     inputBlurHandler: nameBlurHandler,
     reset: nameReset,
-  } = useInput(validateName);
+  } = useInput(isNotEmpty);
 
   const {
     value: enteredSurname,
@@ -20,9 +20,9 @@ const BasicForm = () => {
     valueChangeHandler: surnameChangeHandler,
     inputBlurHandler: surnameBlurHandler,
     reset: surnameReset,
-  } = useInput(validateName);
+  } = useInput(isNotEmpty);
 
-  const validateEmail = (value) => value.trim().includes("@");
+  const includesAt = (value) => value.trim().includes("@");
   const {
     value: enteredEmail,
     isValid: emailIsValid,
@@ -30,7 +30,7 @@ const BasicForm = () => {
     valueChangeHandler: emailChangeHandler,
     inputBlurHandler: emailBlurHandler,
     reset: emailReset,
-  } = useInput(validateEmail);
+  } = useInput(includesAt);
 
   // 2 WALIDACJA CAŁEGO FORMULARZA
 
@@ -77,6 +77,7 @@ const BasicForm = () => {
             onChange={nameChangeHandler}
             onBlur={nameBlurHandler}
           />
+          {nameHasError && <p>Please enter a valid name</p>}
         </div>
         <div className={surnameInputClasses}>
           <label htmlFor="surname">Last Name</label>
@@ -87,6 +88,7 @@ const BasicForm = () => {
             onChange={surnameChangeHandler}
             onBlur={surnameBlurHandler}
           />
+          {surnameHasError && <p>Please enter a valid surname</p>}
         </div>
       </div>
       <div className={emailInputClasses}>
@@ -98,7 +100,9 @@ const BasicForm = () => {
           onChange={emailChangeHandler}
           onBlur={emailBlurHandler}
         />
+        {emailHasError && <p>Please enter a valid email adress</p>}
       </div>
+
       <div className="form-actions">
         <button disabled={!formIsValid}>Submit</button>
       </div>
