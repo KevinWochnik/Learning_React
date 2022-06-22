@@ -1,7 +1,7 @@
 import classes from "./Counter.module.css";
 import { useSelector, useDispatch } from "react-redux";
 // import { actionTypes } from "../store/index";
-import { counterActions } from "../store/index";
+import { counterActions } from "../store/counterSlice";
 
 // const { increment, decrement, increase, toggle } = actionTypes;
 
