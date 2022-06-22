@@ -1,19 +1,40 @@
 import { createStore } from "redux";
 
-const actionTypes = {
+export const actionTypes = {
   increment: "INCREMENT",
   decrement: "DECREMENT",
+  increase: "INCREASE",
+  toggle: "TOGGLE",
 };
 
-const counterReducer = (state = { counter: 0 }, action) => {
+const initialState = {
+  counter: 0,
+  showCounter: false,
+};
+
+const counterReducer = (state = initialState, action) => {
   if (action.type === actionTypes.increment) {
     return {
+      ...state,
       counter: state.counter + 1,
+    };
+  }
+  if (action.type === actionTypes.increase) {
+    return {
+      ...state,
+      counter: state.counter + action.amount,
     };
   }
   if (action.type === actionTypes.decrement) {
     return {
+      ...state,
       counter: state.counter - 1,
+    };
+  }
+  if (action.type === actionTypes.toggle) {
+    return {
+      ...state,
+      showCounter: !state.showCounter,
     };
   }
   return state;
@@ -22,4 +43,3 @@ const counterReducer = (state = { counter: 0 }, action) => {
 const store = createStore(counterReducer);
 
 export default store;
-
