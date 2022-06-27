@@ -48,5 +48,6 @@ export const CartItemWrapper = styled.li`
     color: ${({ theme: { colors } }) => colors.white};
     border: none;
     border-radius: 5px;
+    cursor: pointer;
   }
 `;

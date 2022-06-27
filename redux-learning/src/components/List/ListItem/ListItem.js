@@ -19,6 +19,8 @@ const DUMMY_DATA = [
   },
 ];
 
+
+
 const ListItem = () => {
   const dispatch = useDispatch();
   const addItemToCart = (item) => {

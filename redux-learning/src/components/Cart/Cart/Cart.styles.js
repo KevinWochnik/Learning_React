@@ -17,14 +17,14 @@ export const CartWrapper = styled.div`
   align-items: center;
   flex-wrap: wrap;
 
-  & p{
+  & p {
     height: 10px;
     line-height: 10px;
     font-size: ${({ theme: { fontSize } }) => fontSize.xl};
-    color: ${({theme:{colors}})=>colors.lightGreen}
+    color: ${({ theme: { colors } }) => colors.lightGreen};
   }
 
-  & ul{
+  & ul {
     margin: 0 0 5% -10%;
   }
 `;
