@@ -6,6 +6,7 @@ export const HeaderButtonWrapper = styled.button`
   background-color: ${({ theme: { colors } }) => colors.lightGreen};
   border: none;
   border-radius: 20px;
+  cursor: pointer;
 
   display: flex;
   justify-content: space-around;

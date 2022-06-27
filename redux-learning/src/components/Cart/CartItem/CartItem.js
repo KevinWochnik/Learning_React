@@ -1,16 +1,21 @@
 import { CartItemWrapper } from "./CartItem.styles";
+import { useSelector } from "react-redux";
+
+
 
 const CartItem = () => {
-  return (
+  const items = useSelector(state=>state.cart.items);
+  const mappedItems = items.map((item) => (
     <CartItemWrapper>
-      <h1>new pc</h1>
-      <h2>$15.00</h2>
-      <h3>($5.00/item)</h3>
-      <h1>x4</h1>
+      <h1>{item.title}</h1>
+      <h2>${item.totalPrice.toFixed(2)}</h2>
+      <h3>(${item.price.toFixed(2)}/item)</h3>
+      <h1>x{item.quantity}</h1>
       <button>+</button>
       <button>-</button>
     </CartItemWrapper>
-  );
+  ));
+  return mappedItems;
 };
 
 export default CartItem;

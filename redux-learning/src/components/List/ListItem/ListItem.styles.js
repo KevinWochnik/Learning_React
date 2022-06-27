@@ -54,10 +54,10 @@ export const ListItemWrapper = styled.li`
     margin: 0 10px 0 5px;
 
     font-size: ${({ theme: { fontSize } }) => fontSize.m};
-
     background-color: ${({ theme: { colors } }) => colors.darkGrey};
     color: ${({ theme: { colors } }) => colors.white};
     border: none;
     border-radius: 5px;
+    cursor: pointer;
   }
 `;

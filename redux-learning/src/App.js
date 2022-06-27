@@ -7,6 +7,8 @@ import MainLayout from "./components/layout/MainLayout";
 import Header from "./components/Header/Header/Header";
 import Cart from "./components/Cart/Cart/Cart";
 import List from "./components/List/List/List";
+import { Provider } from "react-redux";
+import store from "./components/store/store";
 
 function App() {
   console.log("dziala");
@@ -14,11 +16,13 @@ function App() {
     <FontsContainer>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <MainLayout>
-          <Header />
-          <Cart />
-          <List />
-        </MainLayout>
+        <Provider store={store}>
+          <MainLayout>
+            <Header />
+            <Cart />
+            <List />
+          </MainLayout>
+        </Provider>
       </ThemeProvider>
     </FontsContainer>
   );
