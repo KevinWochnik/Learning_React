@@ -19,22 +19,7 @@ export const fetchCartData = () => {
       const cartData = await fetchData();
 
       dispatch(cartActions.replaceCart(cartData));
-      dispatch(
-        uiActions.updateNotification({
-          status: "success",
-          title: "Success",
-          message: "Succesfully recieved data",
-        })
-      );
-    } catch (error) {
-      dispatch(
-        uiActions.updateNotification({
-          status: "error",
-          title: "Error",
-          message: "There occured a problem",
-        })
-      );
-    }
+    } catch (error) {}
   };
 };
 
@@ -50,7 +35,10 @@ export const sendCartData = (cart) => {
     const sendRequest = async () => {
       const response = await fetch(API_URL, {
         method: "PUT",
-        body: JSON.stringify(cart),
+        body: JSON.stringify({
+          items: cart.items,
+          totalQuantity: cart.totalQuantity,
+        }),
       });
       if (!response.ok) {
         throw new Error("something went wrong");
