@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   items: [],
   totalQuantity: 0,
+  changed: false,
 };
 
 const cartSlice = createSlice({
@@ -19,6 +20,10 @@ const cartSlice = createSlice({
         quantity,
       };
 
+      if (state.items === undefined) {
+        state.items = [];
+      }
+
       const existingItemIndex = state.items.findIndex(
         (item) => item.id === addedItem.id
       );
@@ -27,11 +32,15 @@ const cartSlice = createSlice({
       } else {
         state.items.push(addedItem);
       }
+      state.changed = true;
     },
 
     removeFromCart(state, action) {
       state.totalQuantity--;
 
+      if (state.items === undefined) {
+        state.items = [];
+      }
       const existingItemIndex = state.items.findIndex(
         (item) => item.id === action.payload
       );
@@ -39,9 +48,17 @@ const cartSlice = createSlice({
       existingItem.quantity--;
 
       if (existingItem.quantity === 0) {
-        const newArray = state.items.filter((item) => item.quantity !== 0);
+        let newArray = state.items.filter((item) => item.quantity !== 0);
+        if (newArray.length === 0) {
+          newArray = [];
+        }
         state.items = newArray;
       }
+      state.changed = true;
+    },
+    replaceCart(state, action) {
+      state.totalQuantity = action.payload.totalQuantity;
+      state.items = action.payload.items;
     },
   },
 });
