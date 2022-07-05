@@ -1,14 +1,16 @@
-import { useRef, useState } from "react";
-import { Prompt } from "react-router-dom";
+import { useRef } from "react";
 
 import Card from "../UI/Card";
 import LoadingSpinner from "../UI/LoadingSpinner";
 import classes from "./QuoteForm.module.css";
+import { useState } from "react";
+import { Prompt } from "react-router-dom";
 
 const QuoteForm = (props) => {
-  const [isEntering, setIsEntering] = useState(false);
   const authorInputRef = useRef();
   const textInputRef = useRef();
+
+  const [isEntered, setIsEntered] = useState(false);
 
   function submitFormHandler(event) {
     event.preventDefault();
@@ -20,24 +22,25 @@ const QuoteForm = (props) => {
 
     props.onAddQuote({ author: enteredAuthor, text: enteredText });
   }
-  const formFocusHandler = () => {
-    setIsEntering(true);
+  const formFocusedHandler = () => {
+    setIsEntered(true);
   };
-  const finishedEntering = () => {
-    setIsEntering(false);
+  const finishEntering = () => {
+    setIsEntered(false);
   };
-
   return (
     <>
       <Prompt
-        when={isEntering}
-        message={(location) => "Are you sure you want to leave?"}
+        when={isEntered}
+        message={(location) =>
+          "Are you sure ? All your entered data will be cleared"
+        }
       />
       <Card>
         <form
-          onFocus={formFocusHandler}
           className={classes.form}
           onSubmit={submitFormHandler}
+          onFocus={formFocusedHandler}
         >
           {props.isLoading && (
             <div className={classes.loading}>
@@ -54,7 +57,7 @@ const QuoteForm = (props) => {
             <textarea id="text" rows="5" ref={textInputRef}></textarea>
           </div>
           <div className={classes.actions}>
-            <button onClick={finishedEntering} className="btn">
+            <button className="btn" onClick={finishEntering}>
               Add Quote
             </button>
           </div>
