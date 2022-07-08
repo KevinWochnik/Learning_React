@@ -17,7 +17,7 @@ const CartItem = () => {
 
     return (
       <CartItemWrapper>
-        <h1>{item.title}</h1>
+        <h1 data-testid="CartItem">{item.title}</h1>
         <h2>${totalPrice.toFixed(2)}</h2>
         <h3>(${item.price.toFixed(2)}/item)</h3>
         <h1>x{item.quantity}</h1>
